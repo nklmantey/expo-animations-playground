@@ -1,8 +1,9 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 import styled from 'styled-components'
 import { Ionicons } from '@expo/vector-icons'
 import { Link } from 'expo-router'
+import Typography from './Typography'
 
 export default function Header({ title }: HeaderProps) {
   return (
@@ -10,10 +11,12 @@ export default function Header({ title }: HeaderProps) {
       <HeaderContainer>
         <Ionicons
           name='arrow-back'
-          size={20}
+          size={24}
           color='#a1a1a1'
         />
-        <HeaderTitle>{title}</HeaderTitle>
+        <Typography size='lg' weight='medium'>
+          {title}
+        </Typography>
       </HeaderContainer>
     </Link>
   )
@@ -24,9 +27,4 @@ const HeaderContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   gap: 8px
-`
-
-const HeaderTitle = styled(Text)`
-  font-size: 20px;
-  font-family: Georgia;
 `

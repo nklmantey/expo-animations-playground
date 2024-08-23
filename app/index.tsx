@@ -1,6 +1,7 @@
 import Card from '@/components/Card'
+import Typography from '@/components/Typography'
 import { Ionicons } from '@expo/vector-icons'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components'
 
@@ -8,16 +9,21 @@ export default function Index() {
   return (
     <SafeAreaContainer>
       <HeaderContainer>
-        <HeaderTitle>Expo Playground</HeaderTitle>
+        <Typography size='heading' weight='bold'>
+          Expo Playground
+        </Typography>
         <Ionicons
           name='person-circle'
           size={28}
           color='#a1a1a1'
         />
       </HeaderContainer>
-      <HeaderDescription>
+      <Typography
+        size='md'
+        style={{ marginTop: 12, lineHeight: 20 }}
+      >
         A collection of mobile interactions I have gathered from Twitter & decided to implement in my free time
-      </HeaderDescription>
+      </Typography>
 
       <BodyContainer>
         <Card
@@ -41,20 +47,7 @@ const HeaderContainer = styled(View)`
   justify-content: space-between;
 `
 
-const HeaderTitle = styled(Text)`
-  font-size:20px;
-  font-family: Georgia;
-`
-
-const HeaderDescription = styled(Text)`
-  font-size: 16px;
-  margin-top: 24px;
-  font-family: Georgia;
-  text-align: center;
-  line-height: 20px;
-`
-
 const BodyContainer = styled(View)`
   width: 100%;
-  margin-top: 48px;
+  margin-top: 24px;
 `

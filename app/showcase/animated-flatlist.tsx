@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import Typography from '@/components/Typography'
 import { TAG_ITEMS } from '@/constants/items'
 import { useEffect, useState } from 'react'
 import { Text, TextInput, View } from 'react-native'
@@ -30,7 +31,7 @@ export default function AnimatedFlatlist() {
           itemLayoutAnimation={LinearTransition.easing(Easing.ease).springify(800)}
           renderItem={({ item }) => (
             <TagItem>
-              <Text>{item}</Text>
+              <Typography size='sm'>{item}</Typography>
             </TagItem>
           )}
           contentContainerStyle={{
@@ -51,19 +52,20 @@ const SafeAreaContainer = styled(SafeAreaView)`
 `
 
 const InputContainer = styled(View)`
-  margin-top: 24px;
+  margin: 16px 0px;
 `
 
 const SearchInput = styled(TextInput)`
   border: 1px solid #d3d3d3;
   padding: 12px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 16px;
   font-weight: 500;
+  font-family: UberMoveMedium;
 `
 
 const TagItem = styled(View)`
-  background-color: #ddd;
+  background-color: #d3d3d3;
   padding: 2px 4px;
   border-radius: 4px
 `

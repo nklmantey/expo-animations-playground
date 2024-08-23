@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { Link } from 'expo-router'
 import { View, Text, TouchableOpacity } from 'react-native'
 import styled from 'styled-components'
+import Typography from './Typography'
 
 export default function Card({
   title,
@@ -12,12 +13,16 @@ export default function Card({
     <Link href={route} asChild>
       <CardContainer activeOpacity={0.6}>
         <CardContent>
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
+          <Typography size='lg' weight='medium'>
+            {title}
+          </Typography>
+          <Typography>
+            {description}
+          </Typography>
         </CardContent>
         <Ionicons
           name='arrow-forward'
-          size={20}
+          size={24}
           color='#a1a1a1'
         />
       </CardContainer>
@@ -27,9 +32,9 @@ export default function Card({
 
 const CardContainer = styled(TouchableOpacity)`
   width: 100%;
-  border: 1px solid #d3d3d3;
+  border: 1px solid #a1a1a1;
   padding: 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -38,13 +43,4 @@ const CardContainer = styled(TouchableOpacity)`
 const CardContent = styled(View)`
   flex: 1;
   gap: 4px;
-`
-
-const CardTitle = styled(Text)`
-  font-size: 18px;
-  font-weight: 700;
-`
-
-const CardDescription = styled(Text)`
-  font-size: 14px;
 `
