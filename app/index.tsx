@@ -5,18 +5,46 @@ import { Ionicons } from '@expo/vector-icons'
 import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components'
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withRepeat,
+  withTiming,
+  Easing,
+} from 'react-native-reanimated'
+import { useEffect } from 'react'
 
 export default function Index() {
+  const AnimatedIcon = Animated.createAnimatedComponent(Ionicons)
+  const scale = useSharedValue(1)
+  const rotation = useSharedValue(0)
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        { scale: withSpring(scale.value) },
+        { rotate: `${rotation.value}deg` },
+      ],
+    }
+  })
+
+  useEffect(() => {
+    scale.value = withRepeat(withSpring(1.2), -1, true)
+    rotation.value = withRepeat(withTiming(10, { duration: 600, easing: Easing.ease }), -1, true)
+  }, [])
+
   return (
     <SafeAreaContainer>
       <HeaderContainer>
         <Typography size='heading2' weight='bold'>
           expo playground
         </Typography>
-        <Ionicons
+        <AnimatedIcon
           name='happy-outline'
           size={28}
           color='#a1a1a1'
+          style={animatedStyle}
         />
       </HeaderContainer>
       <Typography

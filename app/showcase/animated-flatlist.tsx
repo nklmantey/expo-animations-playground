@@ -2,8 +2,8 @@ import Header from '@/components/Header'
 import Typography from '@/components/Typography'
 import { TAG_ITEMS } from '@/constants/items'
 import { useEffect, useState } from 'react'
-import { Text, TextInput, View } from 'react-native'
-import Animated, { Easing, LinearTransition } from 'react-native-reanimated'
+import { TextInput, View } from 'react-native'
+import Animated, { Easing, FadeIn, FadeInLeft, FadeOut, Layout, LinearTransition } from 'react-native-reanimated'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components'
 
@@ -29,11 +29,13 @@ export default function AnimatedFlatlist() {
         />
         <Animated.FlatList
           data={filteredItems}
-          itemLayoutAnimation={LinearTransition.easing(Easing.ease).springify(800)}
+          itemLayoutAnimation={LinearTransition.springify().damping(15).stiffness(120)}
           renderItem={({ item }) => (
-            <TagItem>
-              <Typography size='sm'>{item}</Typography>
-            </TagItem>
+            <Animated.View entering={FadeIn.delay(200).duration(300)} exiting={FadeOut.duration(200)}>
+              <TagItem>
+                <Typography size='sm'>{item}</Typography>
+              </TagItem>
+            </Animated.View>
           )}
           contentContainerStyle={{
             marginTop: 24,
