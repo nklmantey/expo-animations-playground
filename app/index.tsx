@@ -1,5 +1,6 @@
 import Card from '@/components/Card'
 import Typography from '@/components/Typography'
+import { CardRoutes } from '@/constants/routes'
 import { Ionicons } from '@expo/vector-icons'
 import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -9,11 +10,11 @@ export default function Index() {
   return (
     <SafeAreaContainer>
       <HeaderContainer>
-        <Typography size='heading' weight='bold'>
-          Expo Playground
+        <Typography size='heading2' weight='bold'>
+          expo playground
         </Typography>
         <Ionicons
-          name='person-circle'
+          name='happy-outline'
           size={28}
           color='#a1a1a1'
         />
@@ -22,15 +23,13 @@ export default function Index() {
         size='md'
         style={{ marginTop: 12, lineHeight: 20 }}
       >
-        A collection of mobile interactions I have gathered from Twitter & decided to implement in my free time
+        a collection of mobile interactions I gathered from Twitter & decided to implement in my free time
       </Typography>
 
       <BodyContainer>
-        <Card
-          title='Animated FlatList'
-          description='Layout transition for input'
-          route='/showcase/animated-flatlist'
-        />
+        {CardRoutes.map((item) => (
+          <Card key={item.title} {...item} />
+        ))}
       </BodyContainer>
     </SafeAreaContainer>
   )
@@ -49,5 +48,6 @@ const HeaderContainer = styled(View)`
 
 const BodyContainer = styled(View)`
   width: 100%;
-  margin-top: 24px;
+  margin-top: 48px;
+  gap: 16px
 `

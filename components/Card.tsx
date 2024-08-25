@@ -32,9 +32,8 @@ export default function Card({
 
 const CardContainer = styled(TouchableOpacity)`
   width: 100%;
-  border: 1px solid #a1a1a1;
+  border: 1px solid #d3d3d3;
   padding: 16px;
-  border-radius: 4px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;

@@ -22,9 +22,10 @@ export default function AnimatedFlatlist() {
 
       <InputContainer>
         <SearchInput
-          placeholder='Add tag'
+          placeholder='add tag'
           value={query}
           onChangeText={(e) => setQuery(e)}
+          autoCapitalize='none'
         />
         <Animated.FlatList
           data={filteredItems}
@@ -35,7 +36,7 @@ export default function AnimatedFlatlist() {
             </TagItem>
           )}
           contentContainerStyle={{
-            marginTop: 12,
+            marginTop: 24,
             width: '100%',
             flexWrap: 'wrap',
             flexDirection: 'row',
@@ -58,14 +59,12 @@ const InputContainer = styled(View)`
 const SearchInput = styled(TextInput)`
   border: 1px solid #d3d3d3;
   padding: 12px;
-  border-radius: 4px;
   font-size: 16px;
   font-weight: 500;
   font-family: UberMoveMedium;
 `
 
 const TagItem = styled(View)`
-  background-color: #d3d3d3;
-  padding: 2px 4px;
-  border-radius: 4px
+  background-color: #ddd;
+  padding: 4px 8px;
 `
