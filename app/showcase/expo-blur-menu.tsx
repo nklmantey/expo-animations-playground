@@ -40,7 +40,8 @@ export default function ExpoBlurMenu() {
 
 const SafeAreaContainer = styled(SafeAreaView)`
   padding: 20px;
-  flex: 1
+  flex: 1;
+  background-color: #fff;
 `
 
 const BodyContainer = styled(View)`

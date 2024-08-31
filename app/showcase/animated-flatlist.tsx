@@ -52,6 +52,8 @@ export default function AnimatedFlatlist() {
 
 const SafeAreaContainer = styled(SafeAreaView)`
   padding: 20px;
+  flex: 1;
+  background-color: #fff;
 `
 
 const InputContainer = styled(View)`

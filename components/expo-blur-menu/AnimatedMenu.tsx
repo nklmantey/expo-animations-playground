@@ -38,7 +38,7 @@ export default function AnimatedMenu({ isVisible, onToggle }: AnimatedMenuProps)
           bottom={bottom + 32}
         >
           {MENU_ITEMS.map((item) => (
-            <ItemContainer>
+            <ItemContainer key={item.title}>
               <IconContainer>
                 <Ionicons
                   name={item.icon as keyof typeof Ionicons.glyphMap}
