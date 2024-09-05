@@ -3,7 +3,7 @@ import Typography from '@/components/Typography'
 import { TAG_ITEMS } from '@/constants/items'
 import { useEffect, useState } from 'react'
 import { TextInput, View } from 'react-native'
-import Animated, { Easing, FadeIn, FadeInLeft, FadeOut, Layout, LinearTransition } from 'react-native-reanimated'
+import Animated, { FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components'
 
